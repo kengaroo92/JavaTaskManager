@@ -13,4 +13,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface TaskRepository extends JpaRepository<Task, Long> {
     //Stays empty because Spring Data JPA unless I need to add custom query methods.
     //JPA is Java Persistence API.
+
+    //Custom Methods
+    List<Task> findByStatus(String status);
+
+    List<Task> findByPriority(Integer priority);
 }

@@ -44,4 +44,16 @@ public class TaskController {
     public void deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
     }
+
+    @Operation(summary = "Get Tasks by Status")
+    @GetMapping("/status/{status}")
+    public List<Task> getTasksByStatus(@PathVariable String status) {
+        return taskService.findTasksByStatus(status);
+    }
+
+    @Operation(summary = "Get Tasks by Priority")
+    @GetMapping("/priority/{priority}")
+    public List<Task> getTasksByPriority(@PathVariable Integer priority) {
+        return taskService.findTasksByPriority(priority);
+    }
 }

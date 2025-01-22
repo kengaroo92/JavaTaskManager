@@ -1,32 +1,33 @@
 plugins {
-    id 'java'
+    id 'java' //Java Plugin
     id 'org.springframework.boot' version '3.4.1'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'io.spring.dependency-management' version '1.1.7' //Dependency Version
 }
 
+//Project Artifacts
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(23)
+        languageVersion = JavaLanguageVersion.of(23) //Java Version
     }
 }
 
 repositories {
-    mavenCentral()
+    mavenCentral() //External Libraries
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //JPA and Hibernate
+    implementation 'org.springframework.boot:spring-boot-starter-web' //Tomcat and Spring MVC for REST APIS.
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0' //Swagger UI
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'org.postgresql:postgresql'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    runtimeOnly 'org.postgresql:postgresql' //Driver to connect to PostgreSQL
+    testImplementation 'org.springframework.boot:spring-boot-starter-test' //JUnit, Spring Test
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
-    useJUnitPlatform()
+    useJUnitPlatform() //Use JUnit
 }

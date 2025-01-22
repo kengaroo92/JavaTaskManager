@@ -1,35 +1,35 @@
 package com.example.javataskmanager.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.*; //Includes all JPA/Hibernate annotations.
 import java.time.LocalDateTime;
 
-@Entity
+@Entity //JPA Entity
 @Table(name = "tasks")
 public class Task {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //Primary Key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto increment.
     private Long id;
 
     @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
-    private String status = "pending"; // This is the default status.
+    private String status = "pending"; //This is the default status.
 
     @Column(nullable = false)
-    private Integer priority = 1; // This is the default priority.
+    private Integer priority = 1; //This is the default priority.
 
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false) //Not updated automatically.
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    public Task() {}
+    public Task() {} //Required by JPA. No arg constructor.
 
-    public Task(String name, Integer priority) {
+    public Task(String name, Integer priority) { //All arg constructor.
         this.name = name;
         this.priority = priority;
     }
 
-    // Getters and Setters
+    // Getters and Setters (Controls read/write access).
     public Long getId() {
         return id;
     }

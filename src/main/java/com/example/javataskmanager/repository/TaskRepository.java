@@ -3,6 +3,8 @@ package com.example.javataskmanager.repository;
 import com.example.javataskmanager.model.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 //Data Access Layer
 //Extending JPARepository enables built-in methods.
 //save(Task entity)
